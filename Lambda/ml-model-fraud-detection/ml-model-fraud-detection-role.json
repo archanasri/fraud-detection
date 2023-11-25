@@ -1,0 +1,150 @@
+{
+  "$metadata": {
+    "httpStatusCode": 200,
+    "requestId": "d5868eaa-67b1-4650-abd6-686097313cfc",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "partial": false,
+  "policies": [
+    {
+      "arn": "arn:aws:iam::058263730813:policy/service-role/AWSLambdaSNSTopicDestinationExecutionRole-714c50fa-3046-411b-9795-5a08a00eddba",
+      "document": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": [
+              "sns:Publish"
+            ],
+            "Resource": "arn:aws:sns:us-east-2:058263730813:alert-investigator"
+          }
+        ]
+      },
+      "id": "ANPAQ3EGJ7J6S67DKBNCF",
+      "name": "AWSLambdaSNSTopicDestinationExecutionRole-714c50fa-3046-411b-9795-5a08a00eddba",
+      "type": "managed"
+    },
+    {
+      "arn": "arn:aws:iam::058263730813:policy/service-role/AWSLambdaBasicExecutionRole-6592637c-e21e-451b-93d6-be53c78dfc3e",
+      "document": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": [
+              "logs:CreateLogGroup"
+            ],
+            "Resource": "arn:aws:logs:us-east-2:058263730813:*"
+          },
+          {
+            "Effect": "Allow",
+            "Action": [
+              "logs:CreateLogStream",
+              "logs:PutLogEvents"
+            ],
+            "Resource": [
+              "arn:aws:logs:us-east-2:058263730813:log-group:/aws/lambda/ml-model-fraud-detection-lambda:*"
+            ]
+          },
+          {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+              "sagemaker:InvokeEndpoint"
+            ],
+            "Resource": "*"
+          }
+        ]
+      },
+      "id": "ANPAQ3EGJ7J6QLRQHHSAX",
+      "name": "AWSLambdaBasicExecutionRole-6592637c-e21e-451b-93d6-be53c78dfc3e",
+      "type": "managed"
+    }
+  ],
+  "resources": {
+    "sns": {
+      "service": {
+        "icon": "data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjQgNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGcgdHJhbnNmb3JtPSJzY2FsZSguOCkiPgogICAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgPHBhdGggZD0iTTAgMGg4MHY4MEgweiIgZmlsbD0iI0U3MTU3QiIvPgogICAgICA8cGF0aCBkPSJNMTcgMzhjMS4xMDMgMCAyIC44OTcgMiAycy0uODk3IDItMiAyLTItLjg5Ny0yLTIgLjg5Ny0yIDItMnptMjQgMjZjLTExLjY4NiAwLTIxLjcxMS04LjUzNC0yMy44MDYtMjAuMDJBMy45ODQgMy45ODQgMCAwMDIwLjg1NyA0MUgyN3YtMmgtNi4xNDNhMy45ODUgMy45ODUgMCAwMC0zLjY2Mi0yLjk4QzE5LjI4NSAyNC43MSAyOS41MTEgMTYgNDEgMTZjNC4zMTMgMCA4LjgzMiAxLjYyMiAxMy40MjkgNC44MjFsMS4xNDItMS42NDJDNTAuNjMzIDE1Ljc0MyA0NS43MyAxNCA0MSAxNGMtMTIuNzMgMC0yNC4wNTEgOS44NjUtMjUuOTM3IDIyLjUyMUMxMy44MzkgMzcuMjA3IDEzIDM4LjUgMTMgNDBzLjgzOSAyLjc5MyAyLjA2MyAzLjQ3OEMxNi45NyA1Ni4zNDEgMjguMDU2IDY2IDQxIDY2YzUuNDA3IDAgMTAuOTQyLTEuODQzIDE1LjU4NS01LjE4OWwtMS4xNy0xLjYyMkM1MS4xMSA2Mi4yOTIgNDUuOTkxIDY0IDQxIDY0ek0zMC4xMDEgMzYuNDQyYzEuODU0LjQ1MyA0LjE3NC41NTggNS44OTkuNTU4IDEuNjQyIDAgMy44MjMtLjA5NSA1LjYyOS0uNDk0bC00LjUyNCA5LjA0N0ExLjAwMiAxLjAwMiAwIDAwMzcgNDZ2NC40NTNjLS44MDEuNTExLTIuMTY3IDEuMzU5LTMgMS41MzNWNDZhLjk5OC45OTggMCAwMC0uMDc3LS4zODVsLTMuODIyLTkuMTczek0zNiAzM2M0LjAyNSAwIDYuMTc0LjYwNCA2Ljg0MSAxLS42NjcuMzk2LTIuODE2IDEtNi44NDEgMXMtNi4xNzQtLjYwNC02Ljg0MS0xYy42NjctLjM5NiAyLjgxNi0xIDYuODQxLTF6bS0zIDIxaDFjLjA0MyAwIC4wODYtLjAwMy4xMjgtLjAwOCAxLjIyNC0uMTU5IDIuNzgxLTEuMTA1IDQuMTQ0LTEuOTc5bC4yNjMtLjE2OGMuMjg5LS4xODQuNDY1LS41MDMuNDY1LS44NDV2LTQuNzY0bDUuNTU5LTExLjExNmMuMjc0LS4zMTkuNDQxLS42ODYuNDQxLTEuMTIgMC0yLjYxLTUuNjM5LTMtOS0zLTMuMzYxIDAtOSAuMzktOSAzIDAgLjM2Ni4xMi42ODQuMzIuOTY3TDMyIDQ2LjJWNTNhMSAxIDAgMDAxIDF6bTI5LTFjMS4xMDMgMCAyIC44OTcgMiAycy0uODk3IDItMiAyLTItLjg5Ny0yLTIgLjg5Ny0yIDItMnptMC0zMGMxLjEwMyAwIDIgLjg5NyAyIDJzLS44OTcgMi0yIDItMi0uODk3LTItMiAuODk3LTIgMi0yem0yIDE1YzEuMTAzIDAgMiAuODk3IDIgMnMtLjg5NyAyLTIgMi0yLS44OTctMi0yIC44OTctMiAyLTJ6bS0xMCAzaDYuMTQzYy40NDYgMS43MiAxLjk5OSAzIDMuODU3IDMgMi4yMDYgMCA0LTEuNzk0IDQtNHMtMS43OTQtNC00LTRjLTEuODU4IDAtMy40MTEgMS4yOC0zLjg1NyAzSDU0VjI2aDQuMTQzYy40NDYgMS43MiAxLjk5OSAzIDMuODU3IDMgMi4yMDYgMCA0LTEuNzk0IDQtNHMtMS43OTQtNC00LTRjLTEuODU4IDAtMy40MTEgMS4yOC0zLjg1NyAzSDUzYTEgMSAwIDAwLTEgMXYxNGgtN3YyaDd2MTRhMSAxIDAgMDAxIDFoNS4xNDNjLjQ0NiAxLjcyIDEuOTk5IDMgMy44NTcgMyAyLjIwNiAwIDQtMS43OTQgNC00cy0xLjc5NC00LTQtNGMtMS44NTggMC0zLjQxMSAxLjI4LTMuODU3IDNINTRWNDF6IiBmaWxsPSIjRkZGIi8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K",
+        "name": "Amazon SNS"
+      },
+      "statements": [
+        {
+          "action": "sns:Publish",
+          "effect": "Allow",
+          "resource": "arn:aws:sns:us-east-2:058263730813:alert-investigator",
+          "service": "sns",
+          "source": {
+            "index": "0",
+            "policyName": "AWSLambdaSNSTopicDestinationExecutionRole-714c50fa-3046-411b-9795-5a08a00eddba",
+            "policyType": "managed"
+          }
+        }
+      ]
+    },
+    "logs": {
+      "service": {
+        "icon": "data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjQgNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGcgdHJhbnNmb3JtPSJzY2FsZSguOCkiPgogICAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgPHBhdGggZD0iTTAgMGg4MHY4MEgweiIgZmlsbD0iI0U3MTU3QiIvPgogICAgICA8cGF0aCBkPSJNNTUuMDYgNDYuNzc3YzAtMy45MDktMy4yMDItNy4wOS03LjEzOC03LjA5LTMuOTM1IDAtNy4xMzYgMy4xODEtNy4xMzYgNy4wOSAwIDMuOTEgMy4yIDcuMDkgNy4xMzYgNy4wOXM3LjEzNy0zLjE4IDcuMTM3LTcuMDltMi4wMSAwYzAgNS4wMTEtNC4xMDMgOS4wODctOS4xNDcgOS4wODctNS4wNDMgMC05LjE0Ny00LjA3Ni05LjE0Ny05LjA4NyAwLTUuMDEgNC4xMDQtOS4wODYgOS4xNDctOS4wODYgNS4wNDQgMCA5LjE0OCA0LjA3NiA5LjE0OCA5LjA4Nm04LjQ0IDEzLjY5N0w1OC41IDU0LjIwM2ExMy4wMzMgMTMuMDMzIDAgMDEtMS45NDcgMi4xNmw2Ljk5OCA2LjI3YTEuNDc0IDEuNDc0IDAgMDAyLjA2Ni0uMTA3IDEuNDUzIDEuNDUzIDAgMDAtLjEwOC0yLjA1Mm0tMTcuNTg4LTIuODEyYzYuMDQzIDAgMTAuOTU4LTQuODgzIDEwLjk1OC0xMC44ODVzLTQuOTE1LTEwLjg4NC0xMC45NTgtMTAuODg0Yy02LjA0MSAwLTEwLjk1NyA0Ljg4Mi0xMC45NTcgMTAuODg0IDAgNi4wMDIgNC45MTYgMTAuODg1IDEwLjk1NyAxMC44ODVtMTkuMTkgNi4yQTMuNDgzIDMuNDgzIDAgMDE2NC41MjkgNjVhMy40NzUgMy40NzUgMCAwMS0yLjMyMi0uODgzTDU0LjkzMSA1Ny42YTEyLjkzNSAxMi45MzUgMCAwMS03LjAwOSAyLjA2Yy03LjE1IDAtMTIuOTY3LTUuNzc5LTEyLjk2Ny0xMi44ODIgMC03LjEwMiA1LjgxNy0xMi44ODEgMTIuOTY3LTEyLjg4MSA3LjE1MSAwIDEyLjk2OSA1Ljc3OSAxMi45NjkgMTIuODgxIDAgMi4wMzgtLjQ5MiAzLjk2LTEuMzQ0IDUuNjc0bDcuMzA5IDYuNTRhMy40NDQgMy40NDQgMCAwMS4yNTYgNC44NzJNMjEuMjggMjkuMzkzYzAgLjUxOS4wMzIgMS4wMzYuMDk0IDEuNTM2YS45OTQuOTk0IDAgMDEtLjgyMyAxLjEwNmMtMi40NzIuNjM0LTYuNTQgMi41NTMtNi41NCA4LjMxIDAgNC4zNDggMi40MTMgNi43NDggNC40MzkgNy45OTYuNjkxLjQzMyAxLjUxLjY2NCAyLjM3My42NzNsMTIuMTIyLjAxMS0uMDAyIDEuOTk3LTEyLjEzMS0uMDFjLTEuMjQ2LS4wMTQtMi40MjgtLjM1MS0zLjQyOC0uOTc3QzE1LjM3NyA0OC43OTcgMTIgNDUuODkgMTIgNDAuMzQ1YzAtNi42ODMgNC42LTkuMTUzIDcuMy0xMC4wMjYtLjAyLS4zMDctLjAzLS42MTctLjAzLS45MjYgMC01LjQ2IDMuNzI4LTExLjEyMyA4LjY3Mi0xMy4xNzEgNS43ODItMi40MDcgMTEuOTA4LTEuMjE0IDE2LjM4NCAzLjE4OSAxLjM4OCAxLjM2NCAyLjUyOSAzLjAyIDMuNDA0IDQuOTM3YTYuNTA5IDYuNTA5IDAgMDE0LjE1NC0xLjUwMmMzLjAwMiAwIDYuMzgyIDIuMjY0IDYuOTg0IDcuMjE1IDIuODEyLjY0NCA4Ljc1MyAyLjg5NCA4Ljc1MyAxMC4zNjIgMCAyLjk4MS0uOTQxIDUuNDQ0LTIuNzk4IDcuMzE5bC0xLjQzMy0xLjQwMWMxLjQ3My0xLjQ4OCAyLjIyLTMuNDc5IDIuMjItNS45MTggMC02LjUzMi01LjUwNC04LjE1Ny03Ljg3My04LjU1MWExLjAwMiAxLjAwMiAwIDAxLS44MjMtMS4xNTdjLS4zMjktNC4wNTUtMi43NTMtNS44NzItNS4wMy01Ljg3Mi0xLjQzNyAwLTIuNzg0LjY5NS0zLjY5NyAxLjkwN2ExLjAwNiAxLjAwNiAwIDAxLTEuNzUtLjI1OGMtLjgyMy0yLjI2Ni0yLjAxLTQuMTcxLTMuNTI1LTUuNjYxLTMuODgtMy44MTYtOS4xODQtNC44NS0xNC4xOTUtMi43NjYtNC4xNyAxLjcyNy03LjQzNyA2LjcwMi03LjQzNyAxMS4zMjgiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPgo=",
+        "name": "Amazon CloudWatch Logs"
+      },
+      "statements": [
+        {
+          "action": "logs:CreateLogGroup",
+          "effect": "Allow",
+          "resource": "arn:aws:logs:us-east-2:058263730813:*",
+          "service": "logs",
+          "source": {
+            "index": "0",
+            "policyName": "AWSLambdaBasicExecutionRole-6592637c-e21e-451b-93d6-be53c78dfc3e",
+            "policyType": "managed"
+          }
+        },
+        {
+          "action": "logs:CreateLogStream",
+          "effect": "Allow",
+          "resource": "arn:aws:logs:us-east-2:058263730813:log-group:/aws/lambda/ml-model-fraud-detection-lambda:*",
+          "service": "logs",
+          "source": {
+            "index": "1",
+            "policyName": "AWSLambdaBasicExecutionRole-6592637c-e21e-451b-93d6-be53c78dfc3e",
+            "policyType": "managed"
+          }
+        },
+        {
+          "action": "logs:PutLogEvents",
+          "effect": "Allow",
+          "resource": "arn:aws:logs:us-east-2:058263730813:log-group:/aws/lambda/ml-model-fraud-detection-lambda:*",
+          "service": "logs",
+          "source": {
+            "index": "1",
+            "policyName": "AWSLambdaBasicExecutionRole-6592637c-e21e-451b-93d6-be53c78dfc3e",
+            "policyType": "managed"
+          }
+        }
+      ]
+    },
+    "sagemaker": {
+      "service": {
+        "icon": "data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjQgNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGcgdHJhbnNmb3JtPSJzY2FsZSguOCkiPgogICAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgPHBhdGggZD0iTTAgMGg4MHY4MEgweiIgZmlsbD0iIzAxQTg4RCIvPgogICAgICA8cGF0aCBkPSJNNTQuMDM0IDI2LjAzNGExLjAxNyAxLjAxNyAwIDExLTEuMDE3LTEuMDE2Yy41NjEgMCAxLjAxNy40NTYgMS4wMTcgMS4wMTZ6TTQ4LjAwMiAzNmExLjAwMSAxLjAwMSAwIDAxMiAwIDEuMDAxIDEuMDAxIDAgMDEtMiAwem0wIDE5YTEuMDAxIDEuMDAxIDAgMDEyIDAgMS4wMDEgMS4wMDEgMCAwMS0yIDB6bTEwLTEzYTEuMDAxIDEuMDAxIDAgMDEtMiAwIDEuMDAxIDEuMDAxIDAgMDEyIDB6TTY1IDQ1LjI3MmwtNS4wMzctMi44OWMuMDE2LS4xMjYuMDM5LS4yNS4wMzktLjM4MiAwLTEuNjU0LTEuMzQ2LTMtMy0zLTEuNjU1IDAtMyAxLjM0Ni0zIDNzMS4zNDUgMyAzIDNjLjc5OSAwIDEuNTIxLS4zMTkgMi4wNTktLjgyOWw0LjgyNSAyLjc2OC00LjMzMSAyLjE2NmMtLjMzOS4xNy0uNTUzLjUxNi0uNTUzLjg5NXY4LjQ0MWwtMTIuMDE5IDcuMzk2LTUuOTgtMy40MTdWNTZoNS4xODNhMi45OTYgMi45OTYgMCAwMDIuODE2IDJjMS42NTQgMCAzLTEuMzQ2IDMtMyAwLTEuNjU1LTEuMzQ2LTMtMy0zYTIuOTk1IDIuOTk1IDAgMDAtMi44MTYgMmgtNS4xODNWNDBjMC0uMzUtLjE4NS0uNjc3LS40ODYtLjg1OGwtNS4wMDEtMy0xLjAyOSAxLjcxNSA0LjUxNiAyLjcxdjIuOTRsLTYuMDAxIDQuNjE2VjQ0YTEgMSAwIDAwLS4zNzUtLjc4bC00LjYyNS0zLjd2LTQuOTg1bDUuNTU0LTMuNzAyYTEgMSAwIDAwLjQ0Ni0uODMydi02aC0ydjUuNDY1bC00Ljk4OSAzLjMyNC01LjAxMS0zLjMyNnYtNy44OWw1LTIuOTE1VjI3aDJ2LTkuNTFsNC4wMDMtMi4zMzQgNS45OTYgMy40NTlMMzkuMDAyIDMxYzAgLjM1OS4xOTIuNjkuNTA0Ljg2N2w2LjUzNiAzLjczNWMtLjAxOC4xMzEtLjA0LjI2MS0uMDQuMzk3IDAgMS42NTQgMS4zNDUgMyAzIDMgMS42NTQgMCAzLTEuMzQ2IDMtM3MtMS4zNDYtMy0zLTNjLS43OTQgMC0xLjUxMi4zMTUtMi4wNDkuODJsLTUuOTUxLTMuNC0uMDAxLTExLjgwMiA1Ljk2My0zLjQ0MSAxMS4wMzggNy4zNTlWMjVoLTIuMTUxYTMuMDIgMy4wMiAwIDAwLTIuODM0LTEuOTgzIDMuMDE5IDMuMDE5IDAgMDAtMy4wMTUgMy4wMTYgMy4wMTkgMy4wMTkgMCAwMDMuMDE1IDMuMDE2QTMuMDIyIDMuMDIyIDAgMDA1NS44NzUgMjdoMi4xMjd2M2MwIC4zNi4xOTIuNjkuNTA0Ljg2OUw2NSAzNC41OHYxMC42OTJ6TTMzLjAyIDY1LjgzN2wtMy4xNTMtMS45NCA1LjcxNi00LjA4My0xLjE2Mi0xLjYyOC02LjQwMyA0LjU3My03LjAxNi00LjMxOHYtNy44NzVsNC41MTQtMi43MDktMS4wMjktMS43MTUtNC41MjkgMi43MTgtNC45NTYtMi40NzgtLjAwMS01Ljc2NSA1LjQ0OC0yLjcyMy0uODk0LTEuNzg5LTQuNTU0IDIuMjc2LjAwMS0zLjggNS45NjEtMy40MDYgNS4wMzkgMy4zNDR2NC45NjFsLTUuNTUzIDMuNjg3IDEuMTA2IDEuNjY2IDUuNDAzLTMuNTg4IDQuMDQ0IDMuMjM1djUuMTgybC00LjYxIDMuNTQ1IDEuMjE5IDEuNTg1IDExLjM5Mi04Ljc2MnYxNi4zOWwtNS45ODMgMy40MTd6bTMzLjQ3Ni0zMi43MDVsLTYuNDk0LTMuNzExVjIyYS45OTcuOTk3IDAgMDAtLjQ0Ni0uODMybC0xMi04YTEuMDAxIDEuMDAxIDAgMDAtMS4wNTQtLjAzNGwtNi40OTggMy43NS02LjUwMi0zLjc1YS45OTYuOTk2IDAgMDAtMS4wMDQuMDAybC0xMiA3YS45OTguOTk4IDAgMDAtLjQ5Ni44NjR2OC40MmwtNi40OTYgMy43MTFhLjk5Ny45OTcgMCAwMC0uNTA0Ljg2OHYuNDE3TDEzIDM0LjQ4djEwLjg4NGwuMDAyLjA2VjQ3YzAgLjM4LjIxNC43MjUuNTUzLjg5NGw1LjQ0NyAyLjcyNFY1OWMwIC4zNDcuMTc5LjY3LjQ3NS44NTFsMTMgOGExLjAwMiAxLjAwMiAwIDAwMS4wMjEuMDE3bDYuNTA1LTMuNzE2IDYuNTAzIDMuNzE2Yy4zMTUuMTgxLjcwNy4xNzQgMS4wMi0uMDE3bDEzLThhLjk5OS45OTkgMCAwMC40NzYtLjg1di04LjM4M2w1LjQ0NS0yLjcyNEEuOTk4Ljk5OCAwIDAwNjcgNDdWMzRhMSAxIDAgMDAtLjUwNC0uODY4eiIgZmlsbD0iI0ZGRiIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+Cg==",
+        "name": "Amazon SageMaker"
+      },
+      "statements": [
+        {
+          "action": "sagemaker:InvokeEndpoint",
+          "effect": "Allow",
+          "resource": "*",
+          "service": "sagemaker",
+          "source": {
+            "index": "VisualEditor0",
+            "policyName": "AWSLambdaBasicExecutionRole-6592637c-e21e-451b-93d6-be53c78dfc3e",
+            "policyType": "managed"
+          }
+        }
+      ]
+    }
+  },
+  "roleName": "ml-model-fraud-detection-lambda-role-ectfncf3",
+  "trustedEntities": [
+    "lambda.amazonaws.com"
+  ]
+}
